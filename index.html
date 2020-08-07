@@ -29,6 +29,15 @@ body {
   background-color: #f5f5f5;
 }
 
+.img-login{
+  border: 5px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -63,20 +72,20 @@ body {
 
 <body class="text-center">
   <div class="container p-5">
-    <img class="mb-4" src="img/login.png" height="200">
-    <form class="form-signin">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <img class="img-login" src="img/login.png" height="200">
+    <form class="form-signin" action="https://eliel-mengassini.github.io/proyect-ecommerce/home.html">
+      <h1 class="h3 mb-3 font-weight-normal">Ingresá con tu usuario</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" value="" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" value="" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
       <div class="checkbox mb-3">
+        <br>
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> Recuérdame
         </label>
       </div>
-      <button id="button" class="btn btn-lg btn-primary btn-block" onclick="redirect()" type="submit" disabled="disabled">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+      <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
     </form>
   </div>
 
