@@ -1,12 +1,11 @@
 
 const USUARIOS_URL = "https://eliel-mengassini.github.io/proyect-ecommerce/js/usuarios.json";
-// en este array voy a guardar lo que se encuentre en el json
+
 var usersArray = [];
 
-//esta es la funcion que verificara que los datos que dio el ususario, se enc
-function validateUser(array, userIn, passwordIn) { 
-    for (let i = 0; i < array.length; i++) {
-        let usuario = array[i];
+function validateUser(usersArray, userIn, passwordIn) { 
+    for (let i = 0; i < usersArray.length; i++) {
+        let usuario = usersArray[i];
         if (usuario.email == userIn && usuario.password == passwordIn){
             return true;
         }
@@ -25,27 +24,24 @@ document.addEventListener("DOMContentLoaded", function(e){
         let inputPassword = document.getElementById("inputPassword");
         let camposCompletos = true;
         
-        if (inputEmail.value === '') {
+        if (inputEmail.value === "") {
             inputEmail.classList.add("invalid");
             camposCompletos = false;
         }
 
-        if (inputPassword.value === ''){
+        if (inputPassword.value === ""){
             inputPassword.classList.add("invalid");
             camposCompletos = false;
         }
 
         if (camposCompletos) {
 
-            // todo lo que viene a continuación, no se los pide el obligatorio, pero sirve para practicar
-            // ustedes solo deben poner el window.location
-
             getJSONData2(USUARIOS_URL).then(function (resultObj) {
                 if (resultObj.status === "ok") {
                     usersArray = resultObj.data;
         
                     if ( validateUser(usersArray, inputEmail.value, inputPassword.value) ){
-                        window.location = "https://eliel-mengassini.github.io/proyect-ecommerce/home.html";
+                        window.location.replace("https://eliel-mengassini.github.io/proyect-ecommerce/home.html");
                     }else{
                         alert("Usuario o contraseña incorrectas!");
                     }
