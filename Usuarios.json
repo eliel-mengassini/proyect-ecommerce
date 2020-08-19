@@ -1,10 +1,10 @@
 [
     {
-        "Name": "Eliel Mengassini",
+        "name": "Eliel Mengassini",
         "password": "12345"
     },
     {
-        "Name": "Andrés Suárez",
+        "name": "Andrés Suárez",
         "password": "67890"
     }
 ]
