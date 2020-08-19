@@ -5,15 +5,17 @@ let inputPassword = document.getElementById("inputPassword");
 
 
 //esta es la funcion que verificara que los datos que dio el ususario, se enc
-function validateUser(UsersArray, inputName, inputPassword) {
-    if (inputName == Usuarios.name && inputPassword == UsersArray.password){
-        return true;
-     }
-     else { 
-         return false;
-     }
+function validateUser(usersArray, inputName, inputPassword) {
+    for (let i = 0; i < usersArray.length; i++) {
+        let usuario = array[i];
+        if (inputName == usuario.name && inputPassword == usuario.password) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
-
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 usersArray = resultObj.data;
             }
         });
-        
+
         if (validateUser(usersArray, inputName.value, inputPassword.value)) {
             window.location = "https://eliel-mengassini.github.io/proyect-ecommerce/home.html";
         } else {
