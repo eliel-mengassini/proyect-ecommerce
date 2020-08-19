@@ -13,7 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -29,16 +29,19 @@
   <div class="container p-5">
     <div class="row justify-content-end">
       <div class="col-md-6"></div>
-        <div class="col-md-6 col-sm-12 mb-1 container">
+      <div class="col-md-6 col-sm-12 mb-1 container">
+
+        <strong class="bold text-left">Filtros:</strong>
+
+        <div class="col text-right">
+
           <div class="row container p-0 m-0">
+            <p class="font-weight-normal text-right my-2">Rango USD</p>
             <div class="col">
-              <p class="font-weight-normal text-right my-2">Precio USD</p>
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1">
             </div>
             <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1" >
-            </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1" >
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1">
             </div>
             <div class="col-3 p-0">
               <div class="btn-group" role="group">
@@ -47,34 +50,56 @@
               </div>
             </div>
           </div>
+
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+
+            <div>
+              <label class="btn btn-light active" id="sortAsc1">
+                <input type="radio" name="options" autocomplete="off" checked><i
+                  class="fas fa-sort-amount-down-alt"></i>
+              </label>
+            </div>
+            <div>
+              <label class="btn btn-light" id="sortDesc1">
+                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>
+              </label>
+            </div>
+            <div>
+              <label class="btn btn-light" id="sortByCount1">
+                <input type="radio" name="options" autocomplete="off">Relevancia
+              </label>
+            </div>
+          </div>
+
         </div>
-    </div>
-    <div class="row">
-      <div class="list-group" id="product-container">
+      </div>
+      <div class="row">
+        <div class="list-group" id="product-container">
+        </div>
       </div>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <br>
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/products.js"></script>
 </body>
 
 </html>
