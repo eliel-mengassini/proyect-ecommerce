@@ -1,5 +1,5 @@
 
-const USUARIOS_URL = "https://eliel-mengassini.github.io/proyect-ecommerce/js/usuarios.json"
+const USUARIOS_URL = "https://eliel-mengassini.github.io/proyect-ecommerce/js/usuarios.json";
 // en este array voy a guardar lo que se encuentre en el json
 var usersArray = [];
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     usersArray = resultObj.data;
         
                     if ( validateUser(usersArray, inputEmail.value, inputPassword.value) ){
-                        window.location = 'index.html';
+                        window.location = "https://eliel-mengassini.github.io/proyect-ecommerce/home.html";
                     }else{
                         alert("Usuario o contraseña incorrectas!");
                     }
