@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if (camposCompletos) {
             localStorage.setItem("user-logged", JSON.stringify({ email: inputUser.value }));
-            window.location = "https://eliel-mengassini.github.io/proyect-ecommerce/home.html";
+            window.location = "home.html";
             
 
         } else {

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   if (userlogged) {
     userlogged = JSON.parse(userlogged);
-    user.innerText = user.innerText + "Usuario Logueado:" + userlogged.email;
+    user.innerText = user.innerText + userlogged.email;
     infouser.style = "display:inline-block";
   }
 });
