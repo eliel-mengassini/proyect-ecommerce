@@ -70,10 +70,10 @@ function showProductList() {
     }
 }
 
-function sortAndShowProduct(sortCriteria, categoriesArray){
+function sortAndShowProduct(sortCriteria, categoriesArray) {
     currentSortCriteria = sortCriteria;
 
-    if(categoriesArray != undefined){
+    if (categoriesArray != undefined) {
         productArray = categoriesArray;
     }
 
