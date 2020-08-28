@@ -173,7 +173,7 @@ const filter = () => {
     if (resultado.innerHTML === '') {
         resultado.innerHTML += `
         <div>
-        <p class="text-muted" text-allign="left">No se encuentra el producto buscado             </p>
+        <p class="text-muted" text-allign="left">No se encuentra el producto buscado</p>
         </div>
         `
     }
