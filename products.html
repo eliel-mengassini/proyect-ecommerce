@@ -35,7 +35,14 @@
   </nav>
   <div class="container p-5">
     <div class="row justify-content-end">
-      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="form-inline d-flex justify-content-center">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input type="search" id="formulario" class="form-control form-control-sm ml-3 w-75" placeholder="Buscador de productos..."/>
+          <button class="btn btn-light btn-block" id="searchButton" hidden></button>
+        </div>
+      </div>
+      
       <div class="col-md-6 col-sm-12 mb-1 container">
 
         <strong class="bold text-left">Filtros:</strong>
@@ -77,12 +84,9 @@
               </label>
             </div>
           </div>
-          <!--<div>
-            <a>Buscar: </a><input type="search" id="formulario"/>
-          </div>-->
-
         </div>
       </div>
+      
       <div class="row">
         <div class="list-group" id="product-container">
         </div>
