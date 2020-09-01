@@ -13,6 +13,21 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <style>
+    /* The expanding image container (positioning is needed to position the close button and the text) */
+.containerr {
+  position: center;
+  display: none;
+}
+/* Closable button inside the image */
+.closebtn {
+  position: relative;
+  color: rgba(0, 0, 0, 0.342);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+  </style>
 </head>
 
 <body>
@@ -22,23 +37,57 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito <svg width="20px" height="20px"  class="bi bi-cart3" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-      </svg></a>
-      <div id= "info-user" style="display:none;"><svg width="20px" height="20px" class="bi bi-person-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-      </svg><a class="py-2 d-none d-md-inline-block" id="user"> </a></div>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito <svg width="20px" height="20px"
+          class="bi bi-cart3" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+        </svg></a>
+      <div id="info-user" style="display:none;"><svg width="20px" height="20px" class="bi bi-person-circle" fill="white"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+        </svg><a class="py-2 d-none d-md-inline-block" id="user"> </a></div>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <h2 id="categoryName"></h2>
+    <hr class="my-3">
+    <dl>
+      <dt></dt>
+      <dd>
+        <p id="productDescription"></p>
+      </dd>
+      <dd>
+      <dt id="productCost"></dt>
+      </dd>
+      <dd>
+      <dt id="productsSoldCount"> </dt>
+      </dd>
+      <dd>
+      <dt id="productCategory"> </dt>
+      </dd>
+      <br>
+      <dt>Imágenes (click en la imágen para agrandar): </dt>
+      <dd>
+        <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+        </div>
+        <div class="containerr">
+          <!-- Close the image -->
+          <img id="expandedImg" class="img-thumbnail" style="width:70%">
+          <span onclick="this.parentElement.style.display='none'" class="closebtn"><i class="far fa-times-circle"></i></span>
+        
+          <!-- Expanded image -->
+          
+        </div>
+      </dd>
+      <div class="row">
+        <div class="list-group" id="product-related-container">
+        </div>
+      </div>
+    </dl>
+  </div>
   </div>
   <footer class="text-muted">
     <div class="container">
@@ -57,6 +106,7 @@
       <div></div>
     </div>
   </div>
+  
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

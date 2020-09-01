@@ -51,7 +51,7 @@ function showProductList() {
 
 
             htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -67,7 +67,7 @@ function showProductList() {
 
                 </div>
             </div>
-        </div>
+        </a>
         `
         }
         document.getElementById("product-container").innerHTML = htmlContentToAppend;
@@ -148,8 +148,8 @@ const filter = () => {
         let car = product.name.toLowerCase();
         if (car.indexOf(textSearched) !== -1) {
             resultado.innerHTML += `
-            <div class="list-group-item list-group-item-action">
-            <div class="row">
+          <a href="product-info.html" class="list-group-item list-group-item-action">
+            <div class="row" action= href="product-info.html">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                 </div>
@@ -164,7 +164,7 @@ const filter = () => {
 
                 </div>
             </div>
-        </div>
+          </a>
         `
 
         }
@@ -173,7 +173,7 @@ const filter = () => {
     if (resultado.innerHTML === '') {
         resultado.innerHTML += `
         <div>
-        <p class="text-muted" text-allign="left">No se encuentra el producto buscado</p>
+        <p class="text-muted" align="left">No se encuentra el producto buscado</p>
         </div>
         `
     }
