@@ -1,4 +1,5 @@
 var productArray = {};
+var commentArray = []
 
 function showImagesGallery(productArray) {
 
@@ -49,5 +50,95 @@ function myFunction(imgs) {
     expandImg.src = imgs.src;
     // Show the container element (hidden with CSS)
     expandImg.parentElement.style.display = "block";
-  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            commentArray = resultObj.data;
+            showComments(commentArray);
+        }
+    });
+});
+
+
+function showComments() {
+
+    let htmlContentToAppend = "";
+
+    for (let i = 0; i < commentArray.length; i++) {
+        let comment = commentArray[i];
+
+        if (comment.score == "1") {
+
+            htmlContentToAppend +=
+                `<div id="lindo">
+        <p class="h6 my-0"><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+        <blockquote class="blockquote text-right my-0">
+        <p class="comentario my-0 pr-5"><em>" `+ comment.description + `"</em></p>
+        <footer class="blockquote-footer pt-0 pb-0">`+ comment.user + ` - <cite title="Source Title"> ` + comment.dateTime + `</cite></footer>
+        </blockquote>
+        
+        </div>
+        <br>
+        `}
+        else if (comment.score == "2") {
+
+            htmlContentToAppend +=
+                `<div id="lindo">
+            <p class="h6 my-0"> <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+            <blockquote class="blockquote text-right my-0">
+            <p class="comentario my-0 pr-5"><em>" `+ comment.description + `"</em></p>
+            <footer class="blockquote-footer pt-0 pb-0">`+ comment.user + ` - <cite title="Source Title"> ` + comment.dateTime + `</cite></footer>
+            </blockquote>
+            
+            </div>
+            <br>
+            `}
+        else if (comment.score == "3") {
+
+            htmlContentToAppend +=
+                `<div id="lindo">
+            <p class="h6 my-0"><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+            <blockquote class="blockquote text-right my-0">
+            <p class="comentario my-0 pr-5"><em>" `+ comment.description + `"</em></p>
+            <footer class="blockquote-footer pt-0 pb-0">`+ comment.user + ` - <cite title="Source Title"> ` + comment.dateTime + `</cite></footer>
+            </blockquote>
+            
+            </div>
+            <br>
+            `}
+        else if (comment.score == "4") {
+
+            htmlContentToAppend +=
+                `<div id="lindo">
+            <p class="h6 my-0"><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span></p>
+            <blockquote class="blockquote text-right my-0">
+            <p class="comentario my-0 pr-5"><em>" `+ comment.description + `"</em></p>
+            <footer class="blockquote-footer pt-0 pb-0">`+ comment.user + ` - <cite title="Source Title"> ` + comment.dateTime + `</cite></footer>
+            </blockquote>
+            
+            </div>
+            <br>
+            `}
+        else if (comment.score == "5") {
+
+            htmlContentToAppend +=
+                `<div id="lindo">
+                <p class="h6 my-0"><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></p>
+                <blockquote class="blockquote text-right my-0">
+                <p class="comentario my-0 pr-5"><em>" `+ comment.description + `"</em></p>
+                <footer class="blockquote-footer pt-0 pb-0">`+ comment.user + ` - <cite title="Source Title"> ` + comment.dateTime + `</cite></footer>
+                </blockquote>
+                
+                </div>
+                <br>
+                `}
+    }
+
+    document.getElementById("commentbox").innerHTML = htmlContentToAppend;
+
+}
+
 

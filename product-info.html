@@ -15,18 +15,18 @@
   <link href="css/styles.css" rel="stylesheet">
   <style>
     /* The expanding image container (positioning is needed to position the close button and the text) */
-.containerr {
-  position: center;
-  display: none;
-}
-/* Closable button inside the image */
-.closebtn {
-  position: relative;
-  color: rgba(0, 0, 0, 0.342);
-  font-size: 40px;
-  cursor: pointer;
-}
+    .containerr {
+      position: center;
+      display: none;
+    }
 
+    /* Closable button inside the image */
+    .closebtn {
+      position: relative;
+      color: rgba(0, 0, 0, 0.342);
+      font-size: 40px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -74,21 +74,65 @@
         <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
         </div>
         <div class="containerr">
-          <!-- Close the image -->
           <img id="expandedImg" class="img-thumbnail" style="width:70%">
-          <span onclick="this.parentElement.style.display='none'" class="closebtn"><i class="far fa-times-circle"></i></span>
-        
-          <!-- Expanded image -->
-          
+          <span onclick="this.parentElement.style.display='none'" class="closebtn"><i
+              class="far fa-times-circle"></i></span>
         </div>
       </dd>
-      <div class="row">
-        <div class="list-group" id="product-related-container">
-        </div>
+      <dt>Comentarios:</dt><br>
+      <div class="ex3" id="commentbox">
       </div>
+
     </dl>
+
+    <div>
+      <dt>Déja un comentario...</dt><br>
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Apellido">
+          </div>
+          <div class="col">
+            <input type="datetime-local" class="form-control" id="dateTime">
+          </div>
+          <div class="col">
+            <p class="clasificacion pt-1">
+              <input id="radio1" type="radio" name="estrellas" value="5">
+              <!--
+                  --><label for="radio1">★</label>
+              <!--
+                  --><input id="radio2" type="radio" name="estrellas" value="4">
+              <!--
+                  --><label for="radio2">★</label>
+              <!--
+                  --><input id="radio3" type="radio" name="estrellas" value="3">
+              <!--
+                  --><label for="radio3">★</label>
+              <!--
+                  --><input id="radio4" type="radio" name="estrellas" value="2">
+              <!--
+                  --><label for="radio4">★</label>
+              <!--
+                  --><input id="radio5" type="radio" name="estrellas" value="1">
+              <!--
+                  --><label for="radio5">★</label>
+               :nóicautnuP
+            </p>
+          </div>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="exampleInputPassword1"
+            placeholder="Comentario breve sobre el producto...">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
   </div>
-  </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -106,7 +150,7 @@
       <div></div>
     </div>
   </div>
-  
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

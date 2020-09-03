@@ -152,3 +152,68 @@ margin-top: 50px;
 .img-fluid{
   cursor: pointer;
 }
+
+div.ex3 {
+  
+  padding: 30px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+}
+
+.checked {
+  color: orange;
+}
+
+#lindo{
+  background-color: lightblue;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-color: #5e5d5d;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px gray;
+  
+}
+
+.comentario{
+  color: darkblue;
+  text-shadow: -2px 0 skyblue, 0 2px skyblue, 2px 0 skyblue, 0 -2px skyblue;
+}
+
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 50px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
