@@ -197,6 +197,7 @@ div.ex3 {
 
 input[type="radio"] {
   display: none;
+  cursor: pointer;
 }
 
 label {
@@ -204,7 +205,7 @@ label {
 }
 
 .clasificacion {
-  
+  cursor: pointer;
   direction: rtl;
   unicode-bidi: bidi-override;
 }
@@ -212,8 +213,10 @@ label {
 label:hover,
 label:hover ~ label {
   color: orange;
+  cursor: pointer;
 }
 
 input[type="radio"]:checked ~ label {
   color: orange;
+  cursor: pointer;
 }
