@@ -49,10 +49,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
   let userlogged = localStorage.getItem("user-logged")
   let infouser = document.getElementById("info-user");
   let user = document.getElementById("user");
+  let comentarForm = document.getElementById("comentarForm");
+  let preguntaCom = document.getElementById("pregComentario");
+
 
   if (userlogged) {
     userlogged = JSON.parse(userlogged);
     user.innerText = user.innerText + userlogged.email;
     infouser.style = "display:inline-block";
+    comentarForm.style = "display:inline-block";
+    preguntaCom.innerHTML = `Déja un comentario...`;
+
   }
 });

@@ -14,19 +14,11 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    /* The expanding image container (positioning is needed to position the close button and the text) */
-    .containerr {
-      position: center;
-      display: none;
-    }
+    
+   
 
-    /* Closable button inside the image */
-    .closebtn {
-      position: relative;
-      color: rgba(0, 0, 0, 0.342);
-      font-size: 40px;
-      cursor: pointer;
-    }
+    
+    
   </style>
 </head>
 
@@ -77,7 +69,7 @@
       <dd>
         <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
         </div>
-        <div class="containerr">
+        <div class="contenedorimagenzoom">
           <img id="expandedImg" class="img-thumbnail" style="width:70%">
           <span onclick="this.parentElement.style.display='none'" class="closebtn"><i
               class="far fa-times-circle"></i></span>
@@ -90,20 +82,11 @@
     </dl>
 
     <div>
-      <dt>Déja un comentario...</dt><br>
-      <form>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Nombre">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Apellido">
-          </div>
-          <div class="col">
-            <input type="datetime-local" class="form-control" id="dateTime">
-          </div>
-          <div class="col">
-            <p class="clasificacion pt-1">
+      <dt id="pregComentario">¿Quieres dejar un comentario? Loguéate <a href="index.html">aquí.</a></dt><br>
+      <form id="comentarForm" style="display:none;">
+        <div class="">
+          <div class="">
+            <div class="clasificacion pt-1" id="estrellas">
               <input id="radio1" type="radio" name="estrellas" value="5">
               <!--
                   --><label for="radio1">★</label>
@@ -124,15 +107,15 @@
               <!--
                   --><label for="radio5">★</label>
               :nóicautnuP
-            </p>
+                </div>
           </div>
         </div>
-        <div>
+        <div class="">
           <input type="text" class="form-control" id="exampleInputPassword1"
-            placeholder="Comentario breve sobre el producto...">
+            placeholder="Comentario breve sobre el producto..." size="500px">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button id="enviarComentario" type="button" class="btn btn-primary">Enviar</button>
       </form>
     </div>
   </div>

@@ -146,6 +146,23 @@ a.custom-card:hover {
 
 .form-inline {
 margin-top: 50px;
+}
+
+.contenedorimagenzoom {
+  position: center;
+  display: none;
+}
+
+.closebtn {
+  position: relative;
+  color: rgba(0, 0, 0, 0.342);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+#expandedImg {
+  box-shadow: 2px 3px 5px gray;
+}
 
 
 }
@@ -161,6 +178,7 @@ div.ex3 {
   width: 100%;
   height: 200px;
   overflow: auto;
+  
 }
 
 .checked {

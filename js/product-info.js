@@ -1,24 +1,6 @@
 var productArray = {};
-var commentArray = []
+var commentArray = [];
 
-function showImagesGallery(productArray) {
-
-    let htmlContentToAppend = "";
-
-    for (let i = 0; i < productArray.length; i++) {
-        let imageSrc = productArray[i];
-
-        htmlContentToAppend += `
-        <div class="col-sm mx-1">
-            <div class=" mb-4 mx-0 h-100">
-                <img class="img-fluid img-thumbnail rounded" cursor="pointer" src="` + imageSrc + `" onclick="myFunction(this);">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
-}
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
@@ -41,7 +23,33 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showImagesGallery(product.images);
         }
     });
+
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            commentArray = resultObj.data;
+            showComments(commentArray);
+        }
+    });
 });
+
+function showImagesGallery(productArray) {
+
+    let htmlContentToAppend = "";
+
+    for (let i = 0; i < productArray.length; i++) {
+        let imageSrc = productArray[i];
+
+        htmlContentToAppend += `
+        <div class="col-sm mx-1">
+            <div class=" mb-4 mx-0 h-100">
+                <img class="img-fluid img-thumbnail rounded" cursor="pointer" src="` + imageSrc + `" onclick="myFunction(this);">
+            </div>
+        </div>
+        `
+
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+    }
+}
 
 function myFunction(imgs) {
     // Get the expanded image
@@ -53,22 +61,12 @@ function myFunction(imgs) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            commentArray = resultObj.data;
-            showComments(commentArray);
-        }
-    });
-});
-
-
-function showComments() {
+function showComments(array) {
 
     let htmlContentToAppend = "";
 
-    for (let i = 0; i < commentArray.length; i++) {
-        let comment = commentArray[i];
+    for (let i = 0; i < array.length; i++) {
+        let comment = array[i];
 
         if (comment.score == "1") {
 
@@ -141,4 +139,54 @@ function showComments() {
 
 }
 
+var radios = "";
+
+document.getElementById("radio5").addEventListener("click", function estrella1() {
+    radios = 1;
+})
+document.getElementById("radio4").addEventListener("click", function estrella1() {
+    radios = 2;
+})
+document.getElementById("radio3").addEventListener("click", function estrella1() {
+    radios = 3;
+})
+document.getElementById("radio2").addEventListener("click", function estrella1() {
+    radios = 4;
+})
+document.getElementById("radio1").addEventListener("click", function estrella1() {
+    radios = 5;
+})
+
+
+
+
+document.getElementById("enviarComentario").addEventListener("click", function () {
+
+    let comentario = document.getElementById("exampleInputPassword1");
+    let camposCompletos = true;
+    var hoy = new Date();
+    var fecha = hoy.getFullYear() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getDate();
+    var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    var fechayHora = fecha + ' ' + hora;
+    var newComment = Object();
+    newComment.score = radios;
+    newComment.description = document.getElementById("exampleInputPassword1").value;
+    newComment.user = JSON.parse(localStorage.getItem('user-logged')).email;
+    newComment.dateTime = fechayHora;
+
+    if (comentario.value === "") {
+        camposCompletos = false;
+    };
+
+    if (radios === "") {
+        camposCompletos = false;
+    };
+
+    if (camposCompletos) {
+        commentArray.push(newComment);
+        showComments(commentArray);
+    } else {
+        alert("Debes rellenar los campos!");
+    };
+});
 
