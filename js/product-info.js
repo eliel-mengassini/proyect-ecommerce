@@ -1,5 +1,7 @@
 var productArray = {};
 var commentArray = [];
+var relatedproductsArray = [];
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -28,6 +30,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             commentArray = resultObj.data;
             showComments(commentArray);
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            relatedproductsArray = resultObj.data;
+            showRelatedProducts(relatedproductsArray, product.relatedProducts);
         }
     });
 });
@@ -158,8 +167,6 @@ document.getElementById("radio1").addEventListener("click", function estrella1()
 })
 
 
-
-
 document.getElementById("enviarComentario").addEventListener("click", function () {
 
     let comentario = document.getElementById("exampleInputPassword1");
@@ -190,3 +197,19 @@ document.getElementById("enviarComentario").addEventListener("click", function (
     };
 });
 
+function showRelatedProducts(arrayListado, arrayRelacionados) {
+    let contenido = "";
+    arrayRelacionados.forEach(function (i) {
+        contenido += 
+        `<div class="card p-2 mx-2 mt-2">
+         <img src="` + arrayListado[i].imgSrc + `" style="width:100%">
+         <h1>`+ arrayListado[i].name + `</h1>
+         <p class="price">` + arrayListado[i].cost + ` ` + arrayListado[i].currency + `</p>
+         <p><button>Ver Producto</button></p>
+        </div>
+        
+        `
+    });
+
+    document.getElementById("Relacionados").innerHTML = contenido;
+};
