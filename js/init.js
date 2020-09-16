@@ -46,7 +46,7 @@ var getJSONData = function (url) {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
   
-  let userlogged = localStorage.getItem("user-logged")
+  let userlogged = localStorage.getItem("user-logged");
   let infouser = document.getElementById("info-user");
   let user = document.getElementById("user");
   let comentarForm = document.getElementById("comentarForm");
@@ -62,3 +62,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   }
 });
+
+document.getElementById("cerrarSesion").addEventListener("click", function sesionCerrada() {
+ localStorage.removeItem("user-logged");
+ window.location = "index.html";
+})
+

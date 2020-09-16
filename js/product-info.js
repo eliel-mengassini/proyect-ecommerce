@@ -7,7 +7,8 @@ var relatedproductsArray = [];
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            product = resultObj.data;
+            productArray = resultObj.data;
+            let product = productArray;
 
             let productNameHTML = document.getElementById("categoryName");
             let productDescriptionHTML = document.getElementById("productDescription");
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             relatedproductsArray = resultObj.data;
-            showRelatedProducts(relatedproductsArray, product.relatedProducts);
+            showRelatedProducts(relatedproductsArray, productArray.relatedProducts);
         }
     });
 });

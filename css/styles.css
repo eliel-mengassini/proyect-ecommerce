@@ -176,10 +176,31 @@ div.ex3 {
   position: relative;
   background-color: rgb(255, 255, 255);
   width: 100%;
-  height: 200px;
+  height: 400px;
   overflow: auto;
   
 }
+
+#commentbox::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#commentbox::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#commentbox::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: rgb(0, 128, 179);
+}
+
 
 .checked {
   color: orange;
@@ -200,8 +221,9 @@ div.ex3 {
 }
 
 .comentario{
-  color: darkblue;
-  text-shadow: -2px 0 skyblue, 0 2px skyblue, 2px 0 skyblue, 0 -2px skyblue;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  
 }
 
 
