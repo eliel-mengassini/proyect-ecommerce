@@ -25,20 +25,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
         }
-    });
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            commentArray = resultObj.data;
-            showComments(commentArray);
-        }
-    });
+        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+            if (resultObj.status === "ok") {
+                commentArray = resultObj.data;
+                showComments(commentArray);
+            }
 
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            relatedproductsArray = resultObj.data;
-            showRelatedProducts(relatedproductsArray, productArray.relatedProducts);
-        }
+            getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                if (resultObj.status === "ok") {
+                    relatedproductsArray = resultObj.data;
+                    showRelatedProducts(relatedproductsArray, productArray.relatedProducts);
+                }
+            });
+        });
     });
 });
 
