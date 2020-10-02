@@ -2,8 +2,8 @@
         {
             "name": "Pino de olor para el auto",
             "count": 2,
-            "unitCost": 100,
-            "currency": "UYU",
+            "unitCost": 3,
+            "currency": "USD",
             "src": "img/tree1.jpg"
         },
 		{

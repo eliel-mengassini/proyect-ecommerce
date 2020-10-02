@@ -18,10 +18,16 @@ function showCartList(array) {
         let carrito = array[i];
 
         htmlContentToAppend += `
-        <div class="col-3">
-        <img src="` + carrito.src + `" class="img-thumbnail">
-        </div>
-
+        <tr>
+          <td><img src="${carrito.src}" alt="${carrito.name}" style="width:120px" class="img-thumbnail"></td>
+          <td>${carrito.name}</td>
+          <td id="cantidad" class="pr-3">cantidad<input id="cantidad" type="number" value="${carrito.count}"></td>
+          <td>${carrito.currency} ${carrito.unitCost}</td>
+        </tr>
         `
     }
+    document.getElementById("carritoProductos").innerHTML = htmlContentToAppend;
 };
+
+
+

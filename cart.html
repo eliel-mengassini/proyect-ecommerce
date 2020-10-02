@@ -27,6 +27,24 @@
         font-size: 3.5rem;
       }
     }
+
+    tr {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+      font-weight: bold;
+    }
+    #carritoProductos {
+      width: 70%;
+    }
+    #cantidad{
+      width: 50px;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -57,21 +75,11 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="row">
-      <div class="col-lg-8">
-        <div class="mb-3">
-          <div class="pt-4 wish-list">
-            <h5 class="mb-4">Carrito ( <span>2</span> productos)</h5>
-            <div class="row mb-4">
-              <div class="col-md-5 col-lg-3 col-xl-3">
+    <div class="col">
+    <table id="carritoProductos">
 
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </table>
+  </div>
   </div>
 
   <div id="spinner-wrapper">
