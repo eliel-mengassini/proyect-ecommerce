@@ -67,6 +67,7 @@
       </div>
     </div>
   </nav>
+  <div class="bg-light">
   <div class="container p-5">
     <img class="img-fluid mx-auto d-block" src="img/carrito imagen.png" style="height: 100px; position: relative;">
     <h2 style="text-align: center; margin-bottom: 40px; font-weight: bold; margin-top: 20px;">Mi Carrito</h2>
@@ -78,7 +79,7 @@
         </table>
       </div>
       <div class="col-md-4">
-        <form style="border: 1px solid #0080b3; border-radius: 10px;" onclick="calcEnvio()">
+        <form style="border: 1px solid #0080b3; border-radius: 10px; background-color:white" onclick="calcEnvio()">
           <p
             style="font-weight: bold; color: white; background-color: #0080b3; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             Método de Envío</p>
@@ -91,7 +92,7 @@
             <label for="standard">Standard (12 a 15 días)</label>
           </div>
         </form>
-        <div style="border: 1px solid #0080b3; margin-top: 30px; border-radius: 10px; text-align: center;">
+        <div style="border: 1px solid #0080b3; margin-top: 30px; border-radius: 10px; text-align: center; background-color:white">
           <p
             style="font-weight: bold; color: white; background-color: #0080b3; padding: 11px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             Subtotal</p>
@@ -104,11 +105,12 @@
             id="costoFinal"></p>
         </div>
         <br>
-        <button style="border-radius: 10px;" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+        <button id="procederAlpago" style="border-radius: 10px; display: inline;" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
           data-target="#exampleModal">Proceder al Pago</button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

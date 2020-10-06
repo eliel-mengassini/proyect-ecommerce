@@ -1,234 +1,256 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
-    <link rel="icon" href="img/e.png">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+<html lang="en">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="icon" href="img/e.png">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-    
-    </style>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/dropzone.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <div class="dropdown" id= "info-user" style="display:none;"><svg width="20px" height="20px" class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-              <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-              <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-              </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
-                <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
-                <a id="cerrarSesion" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div class="dropdown" id="info-user" style="display:none;"><svg width="20px" height="20px"
+          class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+        </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
+          <a id="cerrarSesion" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="bg-light">
+    <div class="container">
+      <div class="text-center p-4">
+        <h2>Vender</h2>
+        <p class="lead">Ingresa los datos del artículo a vender.</p>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Información del producto</h4>
+          <form class="needs-validation" id="sell-info">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="productName">Nombre</label>
+                <input type="text" class="form-control" id="productName" placeholder="" value="">
+                <div class="invalid-feedback">
+                  Ingresa un nombre
+                </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-8 order-md-1">
+                <label for="zip">Imágenes</label>
+                <div class="needsclick dz-clickable" id="file-upload">
+                  <div class="dz-message needsclick">
+                    Arrastra tus fotos aquí<br>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="productDescription">Descripción</label>
+                <textarea class="form-control" id="productDescription" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="zip">Costo</label>
+                <input type="number" class="form-control" id="productCostInput" placeholder="" required="" value="0"
+                  min="0">
+                <div class="invalid-feedback">
+                  El costo debe ser mayor que 0.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">Moneda</label>
+                <select class="custom-select d-block w-100" id="productCurrency" required="">
+                  <option selected>Pesos Uruguayos (UYU)</option>
+                  <option>Dólares (USD)</option>
+                </select>
+                <div class="invalid-feedback">
+                  Ingresa una categoría válida.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7 mb-3">
+                <label for="state">Categoría</label>
+                <select class="custom-select d-block w-100" id="productCategory">
+                  <option value="">Elija la categoría...</option>
+                  <option>Autos</option>
+                  <option>Juguetes</option>
+                  <option>Muebles</option>
+                  <option>Herramientas</option>
+                  <option>Computadoras</option>
+                  <option>Vestimenta</option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor ingresa una categoría válida.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="productCountInput">Cantidad en stock</label>
+                <input type="number" class="form-control" id="productCountInput" placeholder="" required="" value="1"
+                  min="0">
+                <div class="invalid-feedback">
+                  La cantidad es requerida.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <h5 class="mb-3">Tipo de publicación</h5>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked=""
+                  required="">
+                <label class="custom-control-label" for="goldradio">Gold (13%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="premiumradio">Premium (7%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="standardradio">Estándar (3%)</label>
+              </div>
+              <div class="row">
+                <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver
+                  condiciones</button>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <h4 class="mb-3">Costos</h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Precio</h6>
+                  <small class="text-muted">Unitario del producto</small>
+                </div>
+                <span class="text-muted" id="productCostText">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">P0rcentaje</h6>
+                  <small class="text-muted">Según el tipo de publicación</small>
+                </div>
+                <span class="text-muted" id="comissionText">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total ($)</span>
+                <strong id="totalCostText">-</strong>
+              </li>
+            </ul>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg" type="submit">Vender</button>
+          </form>
         </div>
-    </nav>
+      </div>
+    </div>
+    <footer class="text-muted">
       <div class="container">
-        <div class="text-center p-4">
-          <h2>Vender</h2>
-          <p class="lead">Ingresa los datos del artículo a vender.</p>
-        </div>
-        <div class="row justify-content-md-center">
-          <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Información del producto</h4>
-            <form class="needs-validation" id="sell-info">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="productName">Nombre</label>
-                  <input type="text" class="form-control" id="productName" placeholder="" value="" >
-                  <div class="invalid-feedback">
-                    Ingresa un nombre
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-8 order-md-1">
-                    <label for="zip">Imágenes</label>
-                    <div class="needsclick dz-clickable" id="file-upload">
-                      <div class="dz-message needsclick">
-                        Arrastra tus fotos aquí<br>
-                      </div>
-                    </div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12 mb-3">
-                      <label for="productDescription">Descripción</label>
-                      <textarea class="form-control" id="productDescription" rows="3"></textarea>
-                  </div>
-                </div>
-              <div class="row">
-                <div class="col-md-3 mb-3">
-                  <label for="zip">Costo</label>
-                  <input type="number" class="form-control" id="productCostInput" placeholder="" required="" value="0" min="0">
-                  <div class="invalid-feedback">
-                    El costo debe ser mayor que 0.
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="state">Moneda</label>
-                    <select class="custom-select d-block w-100" id="productCurrency" required="">
-                      <option selected>Pesos Uruguayos (UYU)</option>
-                      <option>Dólares (USD)</option>
-                    </select>
-                    <div class="invalid-feedback">
-                      Ingresa una categoría válida.
-                    </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-7 mb-3">
-                  <label for="state">Categoría</label>
-                  <select class="custom-select d-block w-100" id="productCategory">
-                    <option value="">Elija la categoría...</option>
-                    <option>Autos</option>
-                    <option>Juguetes</option>
-                    <option>Muebles</option>
-                    <option>Herramientas</option>
-                    <option>Computadoras</option>
-                    <option>Vestimenta</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Por favor ingresa una categoría válida.
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-3 mb-3">
-                    <label for="productCountInput">Cantidad en stock</label>
-                    <input type="number" class="form-control" id="productCountInput" placeholder="" required="" value="1" min="0">
-                    <div class="invalid-feedback">
-                      La cantidad es requerida.
-                    </div>
-                  </div>
-                </div>
-              <hr class="mb-4">
-              <h5 class="mb-3">Tipo de publicación</h5>
-              <div class="d-block my-3">
-                <div class="custom-control custom-radio">
-                  <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
-                  <label class="custom-control-label" for="goldradio">Gold (13%)</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="premiumradio">Premium (7%)</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="standardradio">Estándar (3%)</label>
-                </div>
-                <div class="row">
-                  <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
-                </div>
-              </div>
-              <hr class="mb-4">
-              <h4 class="mb-3">Costos</h4>
-              <ul class="list-group mb-3">
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0">Precio</h6>
-                      <small class="text-muted">Unitario del producto</small>
-                    </div>
-                    <span class="text-muted" id="productCostText">-</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0">P0rcentaje</h6>
-                      <small class="text-muted">Según el tipo de publicación</small>
-                    </div>
-                    <span class="text-muted" id="comissionText">-</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>Total ($)</span>
-                    <strong id="totalCostText">-</strong>
-                  </li>
-                </ul>
-              <hr class="mb-4">
-              <button class="btn btn-primary btn-lg" type="submit">Vender</button>
-            </form>
-          </div>
-        </div>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
-      <footer class="text-muted">
-        <div class="container">
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-      </footer>
-      <div class="alert fade" role="alert" id="alertResult">
-          <span id="resultSpan"></span>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
+    </footer>
+    <div class="alert fade" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Condiciones de publicación</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container">
-                  <div class="row">
-                      <h5 class="text-warning">Gold (13%)</h5>
-                      <p class="muted text-justify">Tu producto se verá de forma promocionada en portada, además de las condiciones de Premium y Estándar.</p>
-                  </div>
-                  <hr>
-                  <div class="row">
-                      <h5 class="text-primary">Stándar (7%)</h5>
-                      <p class="muted text-justify">Se mostrará el producto en los primeros lugares de resultados de búsqueda, así cómo cuando se ingrese a la categoría que pertenezca.</p>
-                  </div>
-                  <hr>
-                  <div class="row">
-                      <h5 class="text-secondary">Estándar (3%)</h5>
-                      <p class="muted text-justify">El producto se listará en la categoría correspondiente, así como en los resultados de búsquedas que coincidan con las palabras claves en el nombre.</p>
-                  </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Condiciones de publicación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <h5 class="text-warning">Gold (13%)</h5>
+                <p class="muted text-justify">Tu producto se verá de forma promocionada en portada, además de las
+                  condiciones de Premium y Estándar.</p>
+              </div>
+              <hr>
+              <div class="row">
+                <h5 class="text-primary">Stándar (7%)</h5>
+                <p class="muted text-justify">Se mostrará el producto en los primeros lugares de resultados de búsqueda,
+                  así cómo cuando se ingrese a la categoría que pertenezca.</p>
+              </div>
+              <hr>
+              <div class="row">
+                <h5 class="text-secondary">Estándar (3%)</h5>
+                <p class="muted text-justify">El producto se listará en la categoría correspondiente, así como en los
+                  resultados de búsquedas que coincidan con las palabras claves en el nombre.</p>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
-      <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-      <script src="js/jquery-3.4.1.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/dropzone.js"></script>
-      <script src="js/init.js"></script>
-      <script src="js/sell.js"></script>
-    </body>
+    </div>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/sell.js"></script>
+</body>
+
 </html>

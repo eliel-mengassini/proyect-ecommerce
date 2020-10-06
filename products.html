@@ -23,11 +23,14 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown" id= "info-user" style="display:none;"><svg width="20px" height="20px" class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-        </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
+      <div class="dropdown" id="info-user" style="display:none;"><svg width="20px" height="20px"
+          class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+        </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
@@ -36,81 +39,84 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="row justify-content-end">
-      <div class="col-md-6">
-        <div class="form-inline d-flex justify-content-center">
-          <i class="fas fa-search" aria-hidden="true"></i>
-          <input type="search" id="formulario" class="form-control form-control-sm ml-3 w-75" placeholder="Buscador de productos..."/>
-          <button class="btn btn-light btn-block" id="searchButton" hidden></button>
+  <div class="bg-light">
+    <div class="container p-5">
+      <div class="row justify-content-end">
+        <div class="col-md-6">
+          <div class="form-inline d-flex justify-content-center">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" id="formulario" class="form-control form-control-sm ml-3 w-75"
+              placeholder="Buscador de productos..." />
+            <button class="btn btn-light btn-block" id="searchButton" hidden></button>
+          </div>
         </div>
-      </div>
-      
-      <div class="col-md-6 col-sm-12 mb-1 container">
 
-        <strong class="bold text-left">Filtros:</strong>
+        <div class="col-md-6 col-sm-12 mb-1 container">
 
-        <div class="col text-right">
+          <strong class="bold text-left">Filtros:</strong>
 
-          <div class="row container p-0 m-0">
-            <p class="font-weight-normal text-right my-2">Rango USD</p>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1">
+          <div class="col text-right">
+
+            <div class="row container p-0 m-0">
+              <p class="font-weight-normal text-right my-2">Rango USD</p>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1">
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1">
+              </div>
+              <div class="col-3 p-0">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-light btn-block" id="rangeFilterCount1">Filtrar</button>
+                  <button class="btn btn-link btn-sm" id="clearRangeFilter1">Limpiar</button>
+                </div>
+              </div>
             </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1">
-            </div>
-            <div class="col-3 p-0">
-              <div class="btn-group" role="group">
-                <button class="btn btn-light btn-block" id="rangeFilterCount1">Filtrar</button>
-                <button class="btn btn-link btn-sm" id="clearRangeFilter1">Limpiar</button>
+
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+
+              <div>
+                <label class="btn btn-light active" id="sortAsc1">
+                  <input type="radio" name="options" autocomplete="off" checked><i
+                    class="fas fa-sort-amount-down-alt"></i>
+                </label>
+              </div>
+              <div>
+                <label class="btn btn-light" id="sortDesc1">
+                  <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>
+                </label>
+              </div>
+              <div>
+                <label class="btn btn-light" id="sortByCount1">
+                  <input type="radio" name="options" autocomplete="off">Relevancia
+                </label>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-
-            <div>
-              <label class="btn btn-light active" id="sortAsc1">
-                <input type="radio" name="options" autocomplete="off" checked><i
-                  class="fas fa-sort-amount-down-alt"></i>
-              </label>
-            </div>
-            <div>
-              <label class="btn btn-light" id="sortDesc1">
-                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>
-              </label>
-            </div>
-            <div>
-              <label class="btn btn-light" id="sortByCount1">
-                <input type="radio" name="options" autocomplete="off">Relevancia
-              </label>
-            </div>
+        <div class="row">
+          <div class="list-group" id="product-container">
           </div>
         </div>
       </div>
-      
-      <div class="row">
-        <div class="list-group" id="product-container">
+      <br>
+      <footer class="text-muted bg-light">
+        <div class="container">
+          <p class="float-right">
+            <a href="#">Volver arriba</a>
+          </p>
+          <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+          <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
         </div>
-      </div>
-    </div>
-    <br>
-    <footer class="text-muted bg-light">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-      </div>
-    </footer>
-    <div id="spinner-wrapper">
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      </footer>
+      <div id="spinner-wrapper">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>

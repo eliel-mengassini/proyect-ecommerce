@@ -38,8 +38,8 @@ function showCartList(array) {
     <th class="th1">Cantidad </th>
     <th style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;" class="th1">Costo total </th>
     </tr>
-    <tr><td style="background-color: white;"></td></tr>
-    <tr><td style="background-color: white;"></td></tr>`;
+    <tr><td class="bg-light"></td></tr>
+    <tr><td class="bg-light"></td></tr>`;
 
     for (let i = 0; i < array.length; i++) {
 
@@ -57,7 +57,7 @@ function showCartList(array) {
           <td style="background-color: skyblue; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="eliminar(${i})">
           <i class="fas fa-trash-alt"></i></button></td>
         </tr>
-        <tr><td style="background-color: white;"></td></tr>
+        <tr><td class="bg-light"></td></tr>
         `
     }
     document.getElementById("carritoProductos").innerHTML = contenido;
@@ -65,12 +65,14 @@ function showCartList(array) {
 
 
 function eliminar(i) {
+    let procederApago = document.getElementById("procederAlpago");
     if (cartArray.length > 1) {
         cartArray.splice(i, 1);
         showCartList(cartArray);
     } else {
         document.getElementById("carritoProductos").innerHTML = `
-        <h2 style="text-align: center; margin-top: 40px;">No hay productos en tu carrito</h2>`
+        <h2 style="text-align: center; margin-top: 40px;">No hay productos en tu carrito</h2>`;
+        procederApago.style = "display:none;"
     };
     calcTotal();
 };
