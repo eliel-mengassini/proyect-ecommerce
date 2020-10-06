@@ -57,12 +57,12 @@ function showProductList() {
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
+                    <div class="d-flex w-100 justify-content-between pt-2">
                         <div class="mb-1">
                         <h4>`+ category.name + `</h4>
                         <p>`+ category.description + `</p>
                         </div>
-                        <small class="text-muted">` + category.cost + ` ` + category.currency + `</small>
+                        <p>` + category.cost + ` ` + category.currency + `</p>
                     </div>
 
                 </div>
