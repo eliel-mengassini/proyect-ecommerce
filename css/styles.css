@@ -227,39 +227,21 @@ div.ex3 {
 }
 
 
-#form p {
-  text-align: center;
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-#form label {
-  font-size: 50px;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
 
-input[type="radio"] {
-  display: none;
-  cursor: pointer;
-}
-
-label {
-  color: grey;
-}
-
-.clasificacion {
-  cursor: pointer;
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
-
-label:hover,
-label:hover ~ label {
-  color: orange;
-  cursor: pointer;
-}
-
-input[type="radio"]:checked ~ label {
-  color: orange;
-  cursor: pointer;
-}
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
