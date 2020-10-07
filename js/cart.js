@@ -52,7 +52,7 @@ function showCartList(array) {
           <td style="padding-left:10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" ><img src="${carrito.src}" alt="${carrito.name}" style="width:90px" class="img-thumbnail"></td>
           <td style="padding-right: 40px; padding-left: 20px;">${carrito.name}</td>
           <td style="font-family: Arial, Helvetica, sans-serif;">${carrito.unitCost} USD</td>
-          <td id="cantidad" class=""><input style="width:40px; font-weight: bold;" onchange="calcSubTotal(${carrito.unitCost},${i})" id="cantidad${i}" type="number" value="${carrito.count}" min="1"></td>
+          <td id="cantidad" class=""><input style="width:40px; font-weight: bold; border-radius: 5px;" onchange="calcSubTotal(${carrito.unitCost},${i})" id="cantidad${i}" type="number" value="${carrito.count}" min="1"></td>
           <td style="font-family: Arial, Helvetica, sans-serif;border-bottom-right-radius: 10px;"><span class="subtotal" id="carritosubtotal${i}">${sub}</span> ${carrito.currency}</td>
           <td type="button" style="background-color: skyblue; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;">
           <button type="button" class="btn btn hoverable" title="Eliminar" onclick="eliminar(${i})">
