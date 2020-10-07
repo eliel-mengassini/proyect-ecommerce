@@ -53,9 +53,10 @@ function showCartList(array) {
           <td style="padding-right: 40px; padding-left: 20px;">${carrito.name}</td>
           <td style="font-family: Arial, Helvetica, sans-serif;">${carrito.unitCost} USD</td>
           <td id="cantidad" class=""><input style="width:40px; font-weight: bold;" onchange="calcSubTotal(${carrito.unitCost},${i})" id="cantidad${i}" type="number" value="${carrito.count}" min="1"></td>
-          <td style="font-family: Arial, Helvetica, sans-serif;"><span class="subtotal" id="carritosubtotal${i}">${sub}</span> ${carrito.currency}</td>
-          <td style="background-color: skyblue; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="eliminar(${i})">
-          <i class="fas fa-trash-alt"></i></button></td>
+          <td style="font-family: Arial, Helvetica, sans-serif;border-bottom-right-radius: 10px;"><span class="subtotal" id="carritosubtotal${i}">${sub}</span> ${carrito.currency}</td>
+          <td type="button" style="background-color: skyblue; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;">
+          <button type="button" class="btn btn hoverable" title="Eliminar" onclick="eliminar(${i})">
+          <i id="elimButton" class="fas fa-trash-alt"></i></button></td>
         </tr>
         <tr><td class="bg-light"></td></tr>
         `
