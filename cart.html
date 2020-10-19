@@ -87,11 +87,11 @@
               style="font-weight: bold; color: white; background-color: #0080b3; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
               Dirección de envío</p>
             <div style="padding-left: 10px; padding-right: 10px;">
-              <input type="text" class="form-control" placeholder="Calle"><br>
-              <input type="text" class="form-control" placeholder="Número"><br>
-              <input type="text" class="form-control" placeholder="Esquina"><br>
+              <input id="calle" type="text" class="form-control" placeholder="Calle"><br>
+              <input id="numero" type="text" class="form-control" placeholder="Número"><br>
+              <input id="esquina" type="text" class="form-control" placeholder="Esquina"><br>
               <select class="form-control" id="depto" placeholder="País">
-                <option value="Elegir" id="AF">País</option>
+                <option value="Elegir" id="">País</option>
                 <option value="Afganistán" id="AF">Afganistán</option>
                 <option value="Albania" id="AL">Albania</option>
                 <option value="Alemania" id="DE">Alemania</option>
@@ -332,7 +332,11 @@
                 <option value="Yemen" id="YE">Yemen</option>
                 <option value="Zambia" id="ZM">Zambia</option>
                 <option value="Zimbabue" id="ZW">Zimbabue</option>
-              </select><br>
+              </select>
+              <div class="invalid-feedback">
+                Elige un país
+              </div>
+              <br>
             </div>
           </form>
           <br>
@@ -366,7 +370,7 @@
           </div>
           <br>
           <button id="procederAlpago" style="border-radius: 10px; display: inline;" type="button"
-            class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Proceder al
+            class="btn btn-primary btn-lg btn-block">Proceder al
             Pago</button>
         </scroll-container>
       </div>
@@ -385,14 +389,87 @@
           </button>
         </div>
         <div class="modal-body">
-          <h2>En Construcción...</h2>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">¡Comprar!</button>
+          <div class="row">
+            <div class="col">
+              <h6>Total en USD: <span style="text-decoration: underline gray;" id="totalmodal"></span> </h6>
+              <h7>Total en $U: <span style="text-decoration: underline gray;" id="totalmodalpesos"></span> </h7>
+              <hr>
+              <img src="img/creditcards.png" style="max-width: 200px;">
+            </div>
+
+            <div class="col">
+              <p>Elíge el método de pago</p>
+              <input type="radio" id="credito" name="tipotarjeta" checked>
+              <label class="control-label" for="credito">Crédito</label><br>
+              <input type="radio" id="debito" name="tipotarjeta">
+              <label class="control-label" for="debito">Débito</label><br>
+            </div>
+          </div>
+          <br>
+            
+            <label class="control-label" for="nombretarj">Nombre </label>
+            <input class="form-control" type="text" placeholder="Nombre del usuario de la tarjeta" id="nombretarj">
+            <br>
+            <label class="control-label" for="nombretarj">Número de tarjeta </label>
+            <input class="form-control" type="text" placeholder="Número de tarjeta de crédito/débito" id="numerotarj">
+            <br>
+            <div class="form-group">
+              <label class="control-label" for="expiry-month">Expiration
+                Date</label>
+              <div class="">
+                <div class="row">
+                  <div class="col">
+                    <select id="mes" class="form-control"
+                      style="margin-left:5px;">
+                      <option>Mes</option>
+                      <option value="01">Enero (01)</option>
+                      <option value="02">Febrero (02)</option>
+                      <option value="03">Marzo (03)</option>
+                      <option value="04">Abril (04)</option>
+                      <option value="05">Mayo (05)</option>
+                      <option value="06">Junio (06)</option>
+                      <option value="07">Julio (07)</option>
+                      <option value="08">Agosto (08)</option>
+                      <option value="09">Septiembre (09)</option>
+                      <option value="10">Octubre (10)</option>
+                      <option value="11">Noviembre (11)</option>
+                      <option value="12">Diciembre (12)</option>
+                    </select>
+                    
+                  </div>
+                  <div class="col">
+                    <select id="ano" class="form-control">
+                      <option>Año</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                      <option value="2025">2025</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                    </select>
+                    
+                  </div>
+                  <br>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="cvv">Card CVC</label>
+                  <div class="col-6">
+                    <input type="text" class="form-control" stripe-data="cvc" id="card-cvc" placeholder="Security Code">
+                  </div>
+                </div>
+              
+
+                <button id="pagar" type="submit" class="btn btn-success btn-lg" style="width:100%;">Pagar ahora
+                </button>
+          
         </div>
       </div>
     </div>
+
+  </div>
+  </div>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">

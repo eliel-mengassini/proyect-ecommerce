@@ -1,4 +1,5 @@
 var cartArray = [];
+var buyArray = [];
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(CART_INFO_URL).then(function (resultObj) {
@@ -8,21 +9,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
             calcTotal();
         }
     });
+
+    getJSONData(CART_BUY_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            buyArray = resultObj.data;
+        }
+    });
+
+
 });
 
 calcEnvio();
 
-function calcTotal(){
+function calcTotal() {
     let total = 0;
     let subs = document.getElementsByClassName("subtotal");
-    for(let i=0; i< subs.length; i++){
+    for (let i = 0; i < subs.length; i++) {
         total += parseInt(subs[i].innerHTML);
     }
     document.getElementById("total").innerHTML = `${total} USD`;
     calcEnvio();
 }
 
-function calcSubTotal(costo, i){
+function calcSubTotal(costo, i) {
     let cantidad = parseInt(document.getElementById(`cantidad${i}`).value);
     subtotal = cantidad * costo;
     document.getElementById(`carritosubtotal${i}`).innerHTML = subtotal;
@@ -78,23 +87,112 @@ function eliminar(i) {
     calcTotal();
 };
 
-function calcEnvio(){
+function calcEnvio() {
     let total = parseInt(document.getElementById("total").innerHTML);
     let envio;
     let elementos = document.getElementsByName("envio");
     let costoEnvio = 0;
     let costoTotal = 0;
+    let costoTotalpesos = 0;
 
-    for(var i=0; i < elementos.length; i++) {
-        if (elementos[i].checked){
+    for (var i = 0; i < elementos.length; i++) {
+        if (elementos[i].checked) {
             envio = parseInt(elementos[i].value);
         }
     }
 
-    costoEnvio += (envio * total)/100;
+    costoEnvio += (envio * total) / 100;
     document.getElementById("costoEnvio").innerHTML = `${costoEnvio} USD`;
-
     costoTotal += costoEnvio + total;
     document.getElementById("costoFinal").innerHTML = `${costoTotal} USD`;
-
+    document.getElementById("totalmodal").innerHTML = `${costoTotal} `;
+    costoTotalpesos += costoTotal * 40;
+    document.getElementById("totalmodalpesos").innerHTML = `${costoTotalpesos} `;
+    
 }
+
+
+
+ document.getElementById("procederAlpago").addEventListener("click", function procederalpago (e) {
+
+        let calle = document.getElementById("calle");
+        let numero = document.getElementById("numero");
+        let esquina = document.getElementById("esquina");
+        let pais = document.getElementById("depto");
+        let camposCompletos = true;
+
+        if (calle.value === "") {
+            calle.classList.add("is-invalid");
+            camposCompletos = false;
+        }
+
+        if (numero.value === "") {
+            numero.classList.add("is-invalid");
+            camposCompletos = false;
+        }
+
+        if (esquina.value === "") {
+            esquina.classList.add("is-invalid");
+            camposCompletos = false;
+        }
+
+        if (pais.value === "") {
+            pais.classList.add("is-invalid");
+            camposCompletos = false;
+        }
+
+        if (camposCompletos) {
+            $('#exampleModal').modal('show'); // abrir
+
+        } else {
+            alert('Debes completar el formulario de "Dirección de envío"');
+        }
+    });
+
+
+
+
+document.getElementById("pagar").addEventListener("click", function pagar(e) {
+
+    let nombre = document.getElementById("nombretarj");
+    let numero = document.getElementById("numerotarj");
+    let mes = document.getElementById("mes");
+    let anio = document.getElementById("ano");
+    let cvc = document.getElementById("card-cvc");
+    let camposCompletos = true;
+
+    if (nombre.value === "") {
+        nombre.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (numero.value === "") {
+        numero.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (mes.value === "") {
+        mes.classList.add("is-invalid");
+        camposCompletos = false;
+        
+    }
+
+    if (anio.value === "") {
+        anio.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (cvc.value === "") {
+        cvc.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (camposCompletos) {
+        $('#exampleModal').modal('hide'); // abrir
+        alert(buyArray.msg);
+
+
+    } else {
+        alert('Debes completar todos los campos!');
+    }
+});
