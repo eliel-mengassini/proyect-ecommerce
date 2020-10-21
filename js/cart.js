@@ -4,7 +4,7 @@ var buyArray = [];
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            cartArray = resultObj.data;
+            cartArray = resultObj.data.articles;
             showCartList(cartArray);
             calcTotal();
         }
@@ -50,19 +50,31 @@ function showCartList(array) {
     <tr><td class="bg-light"></td></tr>
     <tr><td class="bg-light"></td></tr>`;
 
+
+
     for (let i = 0; i < array.length; i++) {
 
         let carrito = array[i];
 
-        let sub = carrito.unitCost * carrito.count;
+        let precioEnDolares = "";
+
+        if(carrito.currency === "UYU") {
+            precioEnDolares = carrito.unitCost / 40;
+        } else {
+            precioEnDolares = carrito.unitCost;
+        };
+        
+
+
+        let sub = precioEnDolares * carrito.count;
 
         contenido += `
         <tr>
           <td style="padding-left:10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" ><img src="${carrito.src}" alt="${carrito.name}" style="width:90px" class="img-thumbnail"></td>
           <td style="padding-right: 40px; padding-left: 20px;">${carrito.name}</td>
-          <td style="font-family: Arial, Helvetica, sans-serif;">${carrito.unitCost} USD</td>
-          <td id="cantidad" class=""><input style="width:40px; font-weight: bold; border-radius: 5px;" onchange="calcSubTotal(${carrito.unitCost},${i})" id="cantidad${i}" type="number" value="${carrito.count}" min="1"></td>
-          <td style="font-family: Arial, Helvetica, sans-serif;border-bottom-right-radius: 10px;"><span class="subtotal" id="carritosubtotal${i}">${sub}</span> ${carrito.currency}</td>
+          <td style="font-family: Arial, Helvetica, sans-serif;">${carrito.unitCost} ${carrito.currency}</td>
+          <td id="cantidad" class=""><input style="width:40px; font-weight: bold; border-radius: 5px;" onchange="calcSubTotal(${precioEnDolares},${i})" id="cantidad${i}" type="number" value="${carrito.count}" min="1"></td>
+          <td style="font-family: Arial, Helvetica, sans-serif;border-bottom-right-radius: 10px;"><span class="subtotal" id="carritosubtotal${i}">${sub}</span> USD</td>
           <td type="button" style="background-color: skyblue; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-right:10px;">
           <button type="button" class="btn btn hoverable" title="Eliminar" onclick="eliminar(${i})">
           <i id="elimButton" class="fas fa-trash-alt"></i></button></td>
@@ -108,46 +120,71 @@ function calcEnvio() {
     document.getElementById("totalmodal").innerHTML = `${costoTotal} `;
     costoTotalpesos += costoTotal * 40;
     document.getElementById("totalmodalpesos").innerHTML = `${costoTotalpesos} `;
-    
+
 }
 
 
 
- document.getElementById("procederAlpago").addEventListener("click", function procederalpago (e) {
+document.getElementById("procederAlpago").addEventListener("click", function procederalpago(e) {
 
-        let calle = document.getElementById("calle");
-        let numero = document.getElementById("numero");
-        let esquina = document.getElementById("esquina");
-        let pais = document.getElementById("depto");
-        let camposCompletos = true;
+    let calle = document.getElementById("calle");
+    let numero = document.getElementById("numero");
+    let esquina = document.getElementById("esquina");
+    let pais = document.getElementById("depto");
+    let camposCompletos = true;
 
-        if (calle.value === "") {
-            calle.classList.add("is-invalid");
-            camposCompletos = false;
-        }
+    if (calle.value === "") {
+        calle.classList.add("is-invalid");
+        camposCompletos = false;
+    }
 
-        if (numero.value === "") {
-            numero.classList.add("is-invalid");
-            camposCompletos = false;
-        }
+    if (numero.value === "") {
+        numero.classList.add("is-invalid");
+        camposCompletos = false;
+    }
 
-        if (esquina.value === "") {
-            esquina.classList.add("is-invalid");
-            camposCompletos = false;
-        }
+    if (esquina.value === "") {
+        esquina.classList.add("is-invalid");
+        camposCompletos = false;
+    }
 
-        if (pais.value === "") {
-            pais.classList.add("is-invalid");
-            camposCompletos = false;
-        }
+    if (pais.value === "Pais") {
+        pais.classList.add("is-invalid");
+        camposCompletos = false;
+    }
 
-        if (camposCompletos) {
-            $('#exampleModal').modal('show'); // abrir
+    if (camposCompletos) {
+        $('#exampleModal').modal('show'); // abrir
 
-        } else {
-            alert('Debes completar el formulario de "Dirección de envío"');
-        }
-    });
+    } else {
+        alert('Debes completar el formulario de "Dirección de envío"');
+    }
+});
+
+document.getElementById("calle").addEventListener("input", function valid(e) {
+    let calle = document.getElementById("calle");
+    
+    calle.classList.remove("is-invalid");
+    calle.classList.add("is-valid");
+});
+document.getElementById("numero").addEventListener("input", function valid(e) {
+    let numero = document.getElementById("numero");
+    
+    numero.classList.remove("is-invalid");
+    numero.classList.add("is-valid");
+});
+document.getElementById("esquina").addEventListener("input", function valid(e) {
+    let esquina = document.getElementById("esquina");
+    
+    esquina.classList.remove("is-invalid");
+    esquina.classList.add("is-valid");
+});
+document.getElementById("depto").addEventListener("input", function valid(e) {
+    let pais = document.getElementById("depto");
+    
+    pais.classList.remove("is-invalid");
+    pais.classList.add("is-valid");
+});
 
 
 
@@ -171,13 +208,13 @@ document.getElementById("pagar").addEventListener("click", function pagar(e) {
         camposCompletos = false;
     }
 
-    if (mes.value === "") {
+    if (mes.value === "Mes") {
         mes.classList.add("is-invalid");
         camposCompletos = false;
-        
+
     }
 
-    if (anio.value === "") {
+    if (anio.value === "Ano") {
         anio.classList.add("is-invalid");
         camposCompletos = false;
     }
@@ -195,4 +232,39 @@ document.getElementById("pagar").addEventListener("click", function pagar(e) {
     } else {
         alert('Debes completar todos los campos!');
     }
+});
+
+document.getElementById("nombretarj").addEventListener("input", function valid(e) {
+    let nombretarj = document.getElementById("nombretarj");
+    
+    nombretarj.classList.remove("is-invalid");
+    nombretarj.classList.add("is-valid");
+});
+
+document.getElementById("numerotarj").addEventListener("input", function valid(e) {
+    let numerotarj = document.getElementById("numerotarj");
+    
+    numerotarj.classList.remove("is-invalid");
+    numerotarj.classList.add("is-valid");
+});
+
+document.getElementById("mes").addEventListener("input", function valid(e) {
+    let mes = document.getElementById("mes");
+    
+    mes.classList.remove("is-invalid");
+    mes.classList.add("is-valid");
+});
+
+document.getElementById("ano").addEventListener("input", function valid(e) {
+    let nombretarj = document.getElementById("ano");
+    
+    ano.classList.remove("is-invalid");
+    ano.classList.add("is-valid");
+});
+
+document.getElementById("card-cvc").addEventListener("input", function valid(e) {
+    let cardcvc = document.getElementById("card-cvc");
+    
+    cardcvc.classList.remove("is-invalid");
+    cardcvc.classList.add("is-valid");
 });
