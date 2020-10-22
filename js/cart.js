@@ -125,7 +125,7 @@ function calcEnvio() {
 
 }
 
-
+/* validación form envío */
 
 document.getElementById("procederAlpago").addEventListener("click", function procederalpago(e) {
 
@@ -189,7 +189,7 @@ document.getElementById("depto").addEventListener("input", function valid(e) {
 });
 
 
-
+/* validación form modal pago con tarjeta */
 
 document.getElementById("pagar").addEventListener("click", function pagar(e) {
 
@@ -272,7 +272,7 @@ document.getElementById("card-cvc").addEventListener("input", function valid(e) 
 });
 
 
-
+/* función que cierra modal1 y abre modal 2 */
 
 document.getElementById("transBancaria").addEventListener("click", function banco(e) {
 
@@ -280,6 +280,8 @@ document.getElementById("transBancaria").addEventListener("click", function banc
     $('#exampleModal2').modal('show'); 
 
 });
+
+/* validación form modal pago con transferencia bancaria */
 
 document.getElementById("pagar2").addEventListener("click", function banco(e) {
 
