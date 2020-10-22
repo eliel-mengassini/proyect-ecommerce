@@ -58,12 +58,12 @@ function showCartList(array) {
 
         let precioEnDolares = "";
 
-        if(carrito.currency === "UYU") {
+        if (carrito.currency === "UYU") {
             precioEnDolares = carrito.unitCost / 40;
         } else {
             precioEnDolares = carrito.unitCost;
         };
-        
+
 
 
         let sub = precioEnDolares * carrito.count;
@@ -120,6 +120,8 @@ function calcEnvio() {
     document.getElementById("totalmodal").innerHTML = `${costoTotal} `;
     costoTotalpesos += costoTotal * 40;
     document.getElementById("totalmodalpesos").innerHTML = `${costoTotalpesos} `;
+    document.getElementById("totalmodal2").innerHTML = `${costoTotal} `;
+    document.getElementById("totalmodalpesos2").innerHTML = `${costoTotalpesos} `;
 
 }
 
@@ -154,7 +156,7 @@ document.getElementById("procederAlpago").addEventListener("click", function pro
     }
 
     if (camposCompletos) {
-        $('#exampleModal').modal('show'); // abrir
+        $('#exampleModal').modal('show');
 
     } else {
         alert('Debes completar el formulario de "Dirección de envío"');
@@ -163,25 +165,25 @@ document.getElementById("procederAlpago").addEventListener("click", function pro
 
 document.getElementById("calle").addEventListener("input", function valid(e) {
     let calle = document.getElementById("calle");
-    
+
     calle.classList.remove("is-invalid");
     calle.classList.add("is-valid");
 });
 document.getElementById("numero").addEventListener("input", function valid(e) {
     let numero = document.getElementById("numero");
-    
+
     numero.classList.remove("is-invalid");
     numero.classList.add("is-valid");
 });
 document.getElementById("esquina").addEventListener("input", function valid(e) {
     let esquina = document.getElementById("esquina");
-    
+
     esquina.classList.remove("is-invalid");
     esquina.classList.add("is-valid");
 });
 document.getElementById("depto").addEventListener("input", function valid(e) {
     let pais = document.getElementById("depto");
-    
+
     pais.classList.remove("is-invalid");
     pais.classList.add("is-valid");
 });
@@ -225,7 +227,7 @@ document.getElementById("pagar").addEventListener("click", function pagar(e) {
     }
 
     if (camposCompletos) {
-        $('#exampleModal').modal('hide'); // abrir
+        $('#exampleModal').modal('hide');
         alert(buyArray.msg);
 
 
@@ -236,35 +238,85 @@ document.getElementById("pagar").addEventListener("click", function pagar(e) {
 
 document.getElementById("nombretarj").addEventListener("input", function valid(e) {
     let nombretarj = document.getElementById("nombretarj");
-    
+
     nombretarj.classList.remove("is-invalid");
     nombretarj.classList.add("is-valid");
 });
 
 document.getElementById("numerotarj").addEventListener("input", function valid(e) {
     let numerotarj = document.getElementById("numerotarj");
-    
+
     numerotarj.classList.remove("is-invalid");
     numerotarj.classList.add("is-valid");
 });
 
 document.getElementById("mes").addEventListener("input", function valid(e) {
     let mes = document.getElementById("mes");
-    
+
     mes.classList.remove("is-invalid");
     mes.classList.add("is-valid");
 });
 
 document.getElementById("ano").addEventListener("input", function valid(e) {
-    let nombretarj = document.getElementById("ano");
-    
+    let ano = document.getElementById("ano");
+
     ano.classList.remove("is-invalid");
     ano.classList.add("is-valid");
 });
 
 document.getElementById("card-cvc").addEventListener("input", function valid(e) {
     let cardcvc = document.getElementById("card-cvc");
-    
+
     cardcvc.classList.remove("is-invalid");
     cardcvc.classList.add("is-valid");
+});
+
+
+
+
+document.getElementById("transBancaria").addEventListener("click", function banco(e) {
+
+    $("#cerrarmodal").trigger("click"); 
+    $('#exampleModal2').modal('show'); 
+
+});
+
+document.getElementById("pagar2").addEventListener("click", function banco(e) {
+
+    let numero = document.getElementById("numerocuenta");
+    let banco = document.getElementById("banco");
+    let camposCompletos = true;
+
+    if (numero.value === "") {
+        numero.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (banco.value === "banco") {
+        banco.classList.add("is-invalid");
+        camposCompletos = false;
+    }
+
+    if (camposCompletos) {
+        $('#exampleModal2').modal('hide');
+        alert(buyArray.msg);
+
+
+    } else {
+        alert('Debes completar todos los campos!');
+    }
+});
+
+document.getElementById("numerocuenta").addEventListener("input", function valid(e) {
+    let numero = document.getElementById("numerocuenta");
+
+    numero.classList.remove("is-invalid");
+    numero.classList.add("is-valid");
+});
+
+document.getElementById("banco").addEventListener("input", function valid(e) {
+    let banco = document.getElementById("banco");
+
+    banco.classList.remove("is-invalid");
+    banco.classList.add("is-valid");
 });

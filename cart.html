@@ -63,7 +63,8 @@
         </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span class="badge badge-pill badge-danger">2</span></a>
+          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span
+              class="badge badge-pill badge-danger">2</span></a>
           <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
           <a id="cerrarSesion" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
         </div>
@@ -381,7 +382,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Proceso de Pago</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" id="cerrarmodal" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -389,7 +390,7 @@
           <div class="row">
             <div class="col">
               <h6>Total en USD: <span style="text-decoration: underline gray;" id="totalmodal"></span> </h6>
-              <h7>Total en $U: <span style="text-decoration: underline gray;" id="totalmodalpesos"></span> </h7>
+              <h7>Total en UYU: <span style="text-decoration: underline gray;" id="totalmodalpesos"></span> </h7>
               <hr>
               <img src="img/creditcards.png" style="max-width: 200px;">
             </div>
@@ -400,74 +401,111 @@
               <label class="control-label" for="credito">Crédito</label><br>
               <input type="radio" id="debito" name="tipotarjeta">
               <label class="control-label" for="debito">Débito</label><br>
+              <button id="transBancaria" class="btn btn-primary" type="button">
+                Transferencia bancaria
+              </button>
             </div>
           </div>
           <br>
-            
-            <label class="control-label" for="nombretarj">Nombre </label>
-            <input class="form-control" type="text" placeholder="Nombre del usuario de la tarjeta" id="nombretarj">
-            <br>
-            <label class="control-label" for="nombretarj">Número de tarjeta </label>
-            <input class="form-control" type="text" placeholder="Número de tarjeta de crédito/débito" id="numerotarj">
-            <br>
-            <div class="form-group">
-              <label class="control-label" for="expiry-month">Expiration
-                Date</label>
-              <div class="">
-                <div class="row">
-                  <div class="col">
-                    <select id="mes" class="form-control"
-                      style="margin-left:5px;">
-                      <option value="Mes">Mes</option>
-                      <option value="01">Enero (01)</option>
-                      <option value="02">Febrero (02)</option>
-                      <option value="03">Marzo (03)</option>
-                      <option value="04">Abril (04)</option>
-                      <option value="05">Mayo (05)</option>
-                      <option value="06">Junio (06)</option>
-                      <option value="07">Julio (07)</option>
-                      <option value="08">Agosto (08)</option>
-                      <option value="09">Septiembre (09)</option>
-                      <option value="10">Octubre (10)</option>
-                      <option value="11">Noviembre (11)</option>
-                      <option value="12">Diciembre (12)</option>
-                    </select>
-                    
-                  </div>
-                  <div class="col">
-                    <select id="ano" class="form-control">
-                      <option value="Ano">Año</option>
-                      <option value="2020">2020</option>
-                      <option value="2021">2021</option>
-                      <option value="2022">2022</option>
-                      <option value="2023">2023</option>
-                      <option value="2024">2024</option>
-                      <option value="2025">2025</option>
-                      <option value="2026">2026</option>
-                      <option value="2027">2027</option>
-                    </select>
-                    
-                  </div>
-                  <br>
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="cvv">Card CVC</label>
-                  <div class="col-6">
-                    <input type="text" class="form-control" stripe-data="cvc" id="card-cvc" placeholder="Security Code">
-                  </div>
-                </div>
-              
+          <label class="control-label" for="nombretarj">Nombre </label>
+          <input class="form-control" type="text" placeholder="Nombre del usuario de la tarjeta" id="nombretarj">
+          <br>
+          <label class="control-label" for="nombretarj">Número de tarjeta </label>
+          <input class="form-control" type="text" placeholder="Número de tarjeta de crédito/débito" id="numerotarj">
+          <br>
+          <div class="form-group">
+            <label class="control-label" for="expiry-month">Expiration
+              Date</label>
+            <div class="">
+              <div class="row">
+                <div class="col">
+                  <select id="mes" class="form-control">
+                    <option value="Mes">Mes</option>
+                    <option value="01">Enero (01)</option>
+                    <option value="02">Febrero (02)</option>
+                    <option value="03">Marzo (03)</option>
+                    <option value="04">Abril (04)</option>
+                    <option value="05">Mayo (05)</option>
+                    <option value="06">Junio (06)</option>
+                    <option value="07">Julio (07)</option>
+                    <option value="08">Agosto (08)</option>
+                    <option value="09">Septiembre (09)</option>
+                    <option value="10">Octubre (10)</option>
+                    <option value="11">Noviembre (11)</option>
+                    <option value="12">Diciembre (12)</option>
+                  </select>
 
-                <button id="pagar" type="submit" class="btn btn-success btn-lg" style="width:100%;">Pagar ahora
-                </button>
-          
+                </div>
+                <div class="col">
+                  <select id="ano" class="form-control">
+                    <option value="Ano">Año</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                  </select>
+
+                </div>
+                <br>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cvv">Card CVC</label>
+                <div>
+                  <input style="width: 50%;" type="text" class="form-control" stripe-data="cvc" id="card-cvc" placeholder="Security Code">
+                </div>
+              </div>
+
+
+              <button id="pagar" type="submit" class="btn btn-success btn-lg" style="width:100%;">Pagar ahora
+              </button>
+
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
+  </div>
 
+  <!-- Modal 2-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Transferencia Bancaria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-6">
+          <h6>Total en USD: <span style="text-decoration: underline gray;" id="totalmodal2"></span> </h6>
+          <h7>Total en UYU: <span style="text-decoration: underline gray;" id="totalmodalpesos2"></span> </h7>
+          <hr>
+        </div>
+        <label class="control-label" for="numerocuenta">Numero</label>
+        <input class="form-control" type="text" placeholder="Numero de cuenta bancaria" id="numerocuenta">
+        <br>
+        <select id="banco" class="form-control" style="width: 50%;">
+          <option value="banco">Elija el Banco</option>
+          <option value="01">BROU</option>
+          <option value="02">Santander</option>
+          <option value="03">Itau</option>
+        </select>
+
+      </div>
+      <div class="modal-footer">
+        <button id="pagar2" type="submit" class="btn btn-success btn-lg" style="width:100%;">Pagar ahora
+        </button>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
+</div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
