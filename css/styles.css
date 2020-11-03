@@ -59,6 +59,14 @@ footer p {
   transition: ease-in-out color .15s;
 }
 
+@media screen and (max-width: 500px) {
+  .site-header{
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 .light-text {
   color: white;
 }

@@ -11,7 +11,12 @@
   <link rel="icon" href="img/e.png">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -27,6 +32,13 @@
         font-size: 3.5rem;
       }
     }
+
+    #perfilcard {
+      border: 1px solid #0080b3;
+      border-radius: 10px;
+      background-color: white;
+      margin-right: 30%;
+    }
   </style>
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,13 +53,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown" id= "info-user" style="display:none;"><svg width="20px" height="20px" class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-        </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
+      <div class="dropdown" id="info-user" style="display:none;"><svg width="20px" height="20px"
+          class="bi bi-person-circle mr-2 mt-1" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+        </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span class="badge badge-pill badge-danger">2</span></a>
+          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span
+              class="badge badge-pill badge-danger">2</span></a>
           <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
           <a id="cerrarSesion" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
         </div>
@@ -55,27 +71,76 @@
     </div>
   </nav>
   <div class="bg-light">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-5">
+        <img class="img-fluid img-thumbnail rounded" style="box-shadow: 2px 3px 5px gray; margin-left: 30%; margin-top:10%;" id="userImage" src="https://i.ibb.co/2YBWKFj/default-user.png" alt="default-user">
+        </div>
+        <div class="col-7">
+          <div id="perfilcard">
+            <h5
+              style="border-bottom: 1px solid #0080b3; font-weight: bold; color: white; background-color: #0080b3; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px; text-align: center;">
+              Datos de usuario</h5>
+            <p style="font-weight: bold; color: #0080b3 ; padding-left: 15px; padding-top: 10px;">Nombre: <span
+                style="padding-left:10px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: normal; color: rgb(116, 116, 116);"
+                id="nombre1"></span></p>
+            <hr>
+            <p style="font-weight: bold; color: #0080b3 ; padding-left: 15px; padding-top: 10px;">Edad: <span
+                style="padding-left:10px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: normal; color: rgb(116, 116, 116);"
+                id="edad1"></span></p>
+            <hr>
+            <p style="font-weight: bold; color: #0080b3 ; padding-left: 15px; padding-top: 10px;">E-mail: <span
+                style="padding-left:10px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: normal; color: rgb(116, 116, 116);"
+                id="email1"></span></p>
+            <hr>
+            <p style="font-weight: bold; color: #0080b3 ; padding-left: 15px; padding-top: 10px;">Teléfono de contacto:
+              <span
+                style="padding-left:10px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: normal; color: rgb(116, 116, 116);"
+                id="tel1"></span></p>
+          </div><br>
+          <button style="margin-left: 45%;" class="btn btn-primary" data-toggle="modal" data-target="#modalProfile">Modificar datos</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingrese sus nuevos datos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input class="form-control" type="text" placeholder="Nombres" title="Nombres" id="nombrePerfil"><br>
+            <input class="form-control" type="text" placeholder="Apellidos" title="Apellidos" id="apellidoPerfil"><br>
+            <input class="form-control" type="text" placeholder="Edad" title="Edad" id="edadPerfil"><br>
+            <input class="form-control" type="text" placeholder="E-mail" title="E-mail" id="mailPerfil"><br>
+            <input class="form-control" type="text" placeholder="Teléfono" title="Teléfono" id="telPerfil"><br>
+            <input class="form-control" type="url" placeholder="URL de imágen de perfil" title="URL de imágen de perfil"
+              id="imagenPerfil">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button id="guardarCambios" type="submit" class="btn btn-success">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+    <div class="alert fade alert-success" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

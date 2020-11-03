@@ -32,7 +32,8 @@
         </svg><button class="btn btn-secondary dropdown-toggle py-1 d-none d-md-inline-block bg-dark" type="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user"> </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span class="badge badge-pill badge-danger">2</span></a>
+          <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito <span
+              class="badge badge-pill badge-danger">2</span></a>
           <a class="dropdown-item" href="my-profile.html"><i class="fas fa-address-card"></i> Mi perfil</a>
           <a id="cerrarSesion" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
         </div>
@@ -43,37 +44,40 @@
     <div class="container p-5">
       <div class="row justify-content-end">
         <div class="col-md-6">
-          <div class="form-inline d-flex justify-content-center">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input type="search" id="formulario" class="form-control form-control-sm ml-3 w-75"
+          <div class="row">
+            <i class="fas fa-search" style="padding-top: 10px;" aria-hidden="true"></i>
+            <input type="search" id="formulario" class="form-control ml-3 w-75"
               placeholder="Buscador de productos..." />
             <button class="btn btn-light btn-block" id="searchButton" hidden></button>
           </div>
         </div>
+        <br>
 
         <div class="col-md-6 col-sm-12 mb-1 container">
 
-          <strong class="bold text-left">Filtros:</strong>
+          <a class="btn btn-primary mt-2 mt-md-0" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filtros:</a>
 
-          <div class="col text-right">
+          <div class="collapse col text-right mt-2" id="collapseExample">
 
             <div class="row container p-0 m-0">
               <p class="font-weight-normal text-right my-2">Rango USD</p>
-              <div class="col">
-                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1">
-              </div>
-              <div class="col">
-                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1">
+              <div class="row-sm">
+                <div class="col-md-12">
+                  <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin1">
+                </div>
+                <div class="col-md-12">
+                  <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax1">
+                </div>
               </div>
               <div class="col-3 p-0">
                 <div class="btn-group" role="group">
-                  <button class="btn btn-light btn-block" id="rangeFilterCount1">Filtrar</button>
-                  <button class="btn btn-link btn-sm" id="clearRangeFilter1">Limpiar</button>
+                  <button class="btn btn-light" id="rangeFilterCount1">Filtrar</button>
+                  <button class="btn btn-link" id="clearRangeFilter1">Limpiar</button>
                 </div>
               </div>
             </div>
 
-            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <div class="btn-group btn-group-toggle my-2" data-toggle="buttons">
 
               <div>
                 <label class="btn btn-light active" id="sortAsc1">
@@ -95,8 +99,8 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="list-group" id="product-container">
+        <div class="row mt-2">
+          <div class="row col-sm-12" id="product-container">
           </div>
         </div>
       </div>

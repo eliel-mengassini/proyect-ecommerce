@@ -39,19 +39,16 @@ var getJSONData = function (url) {
       hideSpinner();
       return result;
     });
-}
+};
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-  
+
   let userlogged = localStorage.getItem("user-logged");
   let infouser = document.getElementById("info-user");
   let user = document.getElementById("user");
   let comentarForm = document.getElementById("comentarForm");
   let preguntaCom = document.getElementById("pregComentario");
-
+  
 
   if (userlogged) {
     userlogged = JSON.parse(userlogged);
@@ -59,12 +56,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
     infouser.style = "display:inline-block";
     comentarForm.style = "display:inline-block";
     preguntaCom.innerHTML = `Déja un comentario...`;
-
   }
 });
 
+
+
+
 document.getElementById("cerrarSesion").addEventListener("click", function sesionCerrada() {
- localStorage.removeItem("user-logged");
- window.location = "index.html";
-})
+  localStorage.removeItem("user-logged");
+  localStorage.removeItem("perfilGuardado")
+  window.location = "index.html";
+});
 

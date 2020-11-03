@@ -51,14 +51,16 @@ function showProductList() {
 
 
             htmlContentToAppend += `
+            <div class="col-md-6 col-lg-6">
         <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
-                <div class="col-3">
+              
+                <div class="col-sm-3">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <div class="d-flex w-100 justify-content-between pt-2">
-                        <div class="mb-1">
+                        <div class="">
                         <h4>`+ category.name + `</h4>
                         <p>`+ category.description + `</p>
                         </div>
@@ -66,8 +68,11 @@ function showProductList() {
                     </div>
 
                 </div>
+              
             </div>
         </a>
+        <br>
+        </div>
         `
         }
         document.getElementById("product-container").innerHTML = htmlContentToAppend;
@@ -148,23 +153,27 @@ const filter = () => {
         let car = product.name.toLowerCase();
         if (car.indexOf(textSearched) !== -1) {
             resultado.innerHTML += `
-          <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row" action= href="product-info.html">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ product.name + `</h4>
-                        <p>`+ product.description + `</p>
-                        </div>
-                        <small class="text-muted">` + product.cost + ` ` + product.currency + `</small>
+            <div class="col-md-6 col-lg-6">
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                  
+                    <div class="col-sm-3">
+                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                     </div>
-
+                    <div class="col-sm">
+                        <div class="d-flex w-100 justify-content-between pt-2">
+                            <div class="">
+                            <h4>`+ category.name + `</h4>
+                            <p>`+ category.description + `</p>
+                            </div>
+                            <p>` + category.cost + ` ` + category.currency + `</p>
+                        </div>
+    
+                    </div>
+                  
                 </div>
+            </a>
             </div>
-          </a>
         `
 
         }
