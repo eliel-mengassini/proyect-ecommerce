@@ -2,52 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("guardarCambios").addEventListener("click", function (e) {
-        let camposCompletos = true;
-        let nombre3 = document.getElementById("nombrePerfil");
-        let apellido3 = document.getElementById("apellidoPerfil");
-        let edad3 = document.getElementById("edadPerfil");
-        let email3 = document.getElementById("mailPerfil");
-        let tel3 = document.getElementById("telPerfil");
-        let img3 = document.getElementById("imagenPerfil");
-
-        if (nombre3.value === "") {
-            nombre3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (apellido3.value === "") {
-            apellido3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (edad3.value === "") {
-            edad3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (email3.value === "") {
-            email3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (tel3.value === "") {
-            tel3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (img3.value === "") {
-            img3.classList.add("is-invalid");
-            camposCompletos = false;
-        }
-
-        if (camposCompletos) {
+        
             localStorage.setItem("perfilGuardado", JSON.stringify({ nombre: nombrePerfil.value, apellido: apellidoPerfil.value, edad: edadPerfil.value, email: mailPerfil.value, tel: telPerfil.value, img: imagenPerfil.value }));
             window.location = "my-profile.html";
-
-        } else {
-            alert('Debes completar todos los datos para guardar');
-        }
-
     });
 
     let perfilNuevo = localStorage.getItem("perfilGuardado");
@@ -56,10 +13,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let email = document.getElementById("email1");
     let tel = document.getElementById("tel1");
     let img = document.getElementById("userImage");
+    perfilNuevo = JSON.parse(perfilNuevo);
 
+    if(perfilNuevo.img === ""){
+        perfilNuevo.img = "https://i.ibb.co/2YBWKFj/default-user.png";
+    }
 
     if (perfilNuevo) {
-        perfilNuevo = JSON.parse(perfilNuevo);
         nombre.innerHTML = ` ${perfilNuevo.nombre} ${perfilNuevo.apellido}`;
         edad.innerHTML = ` ${perfilNuevo.edad}`;
         email.innerHTML = ` ${perfilNuevo.email}`;
