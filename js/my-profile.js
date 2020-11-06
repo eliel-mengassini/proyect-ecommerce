@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     perfilNuevo = JSON.parse(perfilNuevo);
 
     if(perfilNuevo.img === ""){
-        perfilNuevo.img = "https://i.ibb.co/2YBWKFj/default-user.png";
+        perfilNuevo.img = "https://i.ibb.co/zmMTtxT/default-user.png";
     }
 
     if (perfilNuevo) {
